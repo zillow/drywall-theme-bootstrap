@@ -10,4 +10,9 @@ module.exports = createStyleguideConfig({
     styleguideComponents: {
         Wrapper: path.join(__dirname, 'src/styleguidist/ThemeWrapper'),
     },
+}, {
+    componentsSection: false,
+    styleguides: [
+        'drywall'
+    ],
 });

@@ -32,16 +32,19 @@
     }
   },
   "dependencies": {
+    "color": "^3.1.2",
     "prop-types": "^15.7.2",
     "styled-components": "^4.3.2"
   },
   "peerDependencies": {
+    "drywall": "^0.2.3",
     "react": "16.x"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.1",
     "babel-preset-zillow": "^4.1.0",
     "create-react-styleguide": "^4.0.5",
+    "drywall": "^0.2.3",
     "eslint-plugin-jest": "^22.7.1",
     "eslint-plugin-zillow": "^3.2.0",
     "husky": "^1.3.1",
