@@ -2,8 +2,11 @@ const path = require('path');
 const { createStyleguideConfig } = require('create-react-styleguide');
 
 module.exports = createStyleguideConfig({
-    /* your own config shallowly merged */
     sections: [{
+        name: 'Releases ↗',
+        href: 'https://github.com/zillow/drywall-theme-bootstrap/blob/master/CHANGELOG.md',
+        external: true
+    }, {
         name: 'Introduction',
         content: 'docs/introduction.md'
     }],
