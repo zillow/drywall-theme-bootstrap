@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 
 const btnReset = css`
+    text-decoration: none;
     &:not(:disabled) {
         cursor: pointer;
     }

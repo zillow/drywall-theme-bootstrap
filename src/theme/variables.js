@@ -211,7 +211,7 @@ export const hrMarginY = spacer;
 
 export const inputBtnPaddingY = '.375rem';
 export const inputBtnPaddingX = '.75rem';
-export const inputBtnFontFamily = null;
+export const inputBtnFontFamily = fontFamilyBase;
 export const inputBtnFontSize = `${fontSizeBase}${fontSizeUnits}`;
 export const inputBtnLineHeight = lineHeightBase;
 
