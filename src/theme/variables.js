@@ -1,6 +1,5 @@
 import Color from 'color';
-
-const rgba = (color, fade) => Color(color).fade(fade);
+import { rgba } from './util';
 
 // Color system
 

@@ -2,20 +2,20 @@
 
 import Color from 'color';
 import { css } from 'styled-components';
-import { yiqTextDark, yiqTextLight, yiqContrastedThreshold } from '../variables';
+import { colorYiq, rgba, mix } from '../util';
 
-const colorYiq = (color, dark = yiqTextDark, light = yiqTextLight) => {
-    const c = Color(color);
-    const r = c.red();
-    const g = c.green();
-    const b = c.blue();
-
-    const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-
-    if (yiq >= yiqContrastedThreshold) {
-        return dark;
+const focusBoxShadow = (background, border, boxShadow) => ({ theme }) => {
+    if (theme.bootstrap.enableShadows) {
+        return css`
+            box-shadow: ${boxShadow},
+                0 0 0 ${theme.bootstrap.variables.btnFocusWidth}
+                    ${rgba(mix(colorYiq(background), border, 0.15), 0.5)};
+        `;
     }
-    return light;
+    return css`
+        box-shadow: 0 0 0 ${theme.bootstrap.variables.btnFocusWidth}
+            ${rgba(mix(colorYiq(background), border, 0.15), 0.5)};
+    `;
 };
 
 export const buttonVariant = (
@@ -64,17 +64,7 @@ export const buttonVariant = (
             color: ${colorYiq(hoverBackground)};
             ${theme.bootstrap.gradientBg(hoverBackground)};
             border-color: ${hoverBorder};
-            // Avoid using mixin so we can pass custom focus shadow properly
-            //@if $enable-shadows {
-            //    box-shadow: $btn-box-shadow,
-            //        0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), 0.5);
-            //} @else {
-            //    box-shadow: 0
-            //        0
-            //        0
-            //        $btn-focus-width
-            //        rgba(mix(color-yiq($background), $border, 15%), 0.5);
-            //}
+            ${focusBoxShadow(background, border, theme.bootstrap.variables.btnBoxShadow)};
         }
 
         // Disabled comes first so active can properly restyle
@@ -97,17 +87,7 @@ export const buttonVariant = (
             border-color: ${activeBorder};
 
             &:focus {
-                // Avoid using mixin so we can pass custom focus shadow properly
-                //@if $enable-shadows and $btn-active-box-shadow != none {
-                //    box-shadow: $btn-active-box-shadow,
-                //        0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), 0.5);
-                //} @else {
-                //    box-shadow: 0
-                //        0
-                //        0
-                //        $btn-focus-width
-                //        rgba(mix(color-yiq($background), $border, 15%), 0.5);
-                //}
+                ${focusBoxShadow(background, border, theme.bootstrap.variables.btnActiveBoxShadow)};
             }
         }
     `;
