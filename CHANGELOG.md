@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/zillow/drywall-theme-bootstrap/compare/v0.2.0...v0.3.0) (2019-06-26)
+
+
+### Bug Fixes
+
+* update theme for drywall@0.3.0 ([5bd4b06](https://github.com/zillow/drywall-theme-bootstrap/commit/5bd4b06))
+
+
+### Features
+
+* add "outline" variant to `Button` ([1a5df04](https://github.com/zillow/drywall-theme-bootstrap/commit/1a5df04))
+
+
+
 ## 0.2.0 (2019-06-26)
 
 
