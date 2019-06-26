@@ -56,11 +56,11 @@ const btn = ({ theme }) => css`
     }
 `;
 
-const btnType = ({ buttonType, theme }) => {
+const btnType = ({ appearance = 'primary', theme }) => {
     const map = {
         caution: 'danger',
     };
-    const color = theme.bootstrap.variables.themeColor[map[buttonType] || buttonType];
+    const color = theme.bootstrap.variables.themeColor[map[appearance] || appearance];
     if (color) {
         return css`
             ${theme.bootstrap.buttonVariant(color, color)};
