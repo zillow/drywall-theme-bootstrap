@@ -13,6 +13,10 @@ module.exports = createStyleguideConfig({
     styleguideComponents: {
         Wrapper: path.join(__dirname, 'src/styleguidist/ThemeWrapper'),
     },
+    getComponentPathLine: componentPath => {
+        const name = path.basename(componentPath, '.jsx');
+        return `import { ${name} } from 'drywall';`;
+    },
 }, {
     componentsSection: false,
     styleguides: [
