@@ -56,11 +56,8 @@ const btn = ({ theme }) => css`
     }
 `;
 
-const btnType = ({ appearance = 'primary', theme }) => {
-    const map = {
-        caution: 'danger',
-    };
-    const color = theme.bootstrap.variables.themeColor[map[appearance] || appearance];
+const btnAppearance = ({ appearance = 'primary', theme }) => {
+    const color = theme.bootstrap.variables.themeColor[appearance];
     if (color) {
         return css`
             ${theme.bootstrap.buttonVariant(color, color)};
@@ -104,7 +101,7 @@ const btnBlock = ({ fluid }) => {
 export default css`
     ${btnReset};
     ${btn};
-    ${btnType};
+    ${btnAppearance};
     ${btnSize};
     ${btnBlock};
 `;
