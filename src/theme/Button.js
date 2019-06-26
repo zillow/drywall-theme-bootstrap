@@ -56,11 +56,21 @@ const btn = ({ theme }) => css`
     }
 `;
 
-const btnAppearance = ({ appearance = 'primary', theme }) => {
+const btnAppearance = ({ variant, appearance = 'primary', theme }) => {
     const color = theme.bootstrap.variables.themeColor[appearance];
-    if (color) {
+    if (color && variant !== 'outline') {
         return css`
             ${theme.bootstrap.buttonVariant(color, color)};
+        `;
+    }
+    return null;
+};
+
+const btnVariant = ({ variant, appearance = 'primary', theme }) => {
+    const color = theme.bootstrap.variables.themeColor[appearance];
+    if (color && variant === 'outline') {
+        return css`
+            ${theme.bootstrap.buttonOutlineVariant(color)};
         `;
     }
     return null;
@@ -102,6 +112,7 @@ export default css`
     ${btnReset};
     ${btn};
     ${btnAppearance};
+    ${btnVariant};
     ${btnSize};
     ${btnBlock};
 `;

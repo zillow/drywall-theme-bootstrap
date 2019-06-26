@@ -93,6 +93,59 @@ export const buttonVariant = (
     `;
 };
 
+const outlineFocusBoxShadow = color => ({ theme }) => {
+    if (theme.bootstrap.enableShadows && theme.bootstrap.variables.btnActiveBoxShadow) {
+        return css`
+            box-shadow: ${theme.bootstrap.variables.btnActiveBoxShadow},
+                0 0 0 ${theme.bootstrap.variables.btnFocusWidth} ${rgba(color, 0.5)};
+        `;
+    }
+    return css`
+        box-shadow: 0 0 0 ${theme.bootstrap.variables.btnFocusWidth} ${rgba(color, 0.5)};
+    `;
+};
+
+export const buttonOutlineVariant = (color, colorHover, activeBackground, activeBorder) => {
+    colorHover = colorHover || colorYiq(color);
+    activeBackground = activeBackground || color;
+    activeBorder = activeBorder || color;
+
+    return ({ theme }) => css`
+        color: ${color};
+        border-color: ${color};
+
+        &:hover {
+            color: ${colorHover};
+            background-color: ${activeBackground};
+            border-color: ${activeBorder};
+        }
+
+        &:focus,
+        &.focus {
+            box-shadow: 0 0 0 ${theme.bootstrap.variables.btnFocusWidth} ${rgba(color, 0.5)};
+        }
+
+        &.disabled,
+        &:disabled {
+            color: ${color};
+            background-color: transparent;
+        }
+
+        &:not(:disabled):not(.disabled):active,
+        &:not(:disabled):not(.disabled).active,
+        .show > &.dropdown-toggle {
+            color: ${colorYiq(activeBackground)};
+            background-color: ${activeBackground};
+            border-color: ${activeBorder};
+
+            &:focus {
+                // Avoid using mixin so we can pass custom focus shadow properly
+                ${outlineFocusBoxShadow(color)};
+            }
+        }
+    `;
+};
+
 export const buttonSize = (paddingY, paddingX, fontSize, lineHeight, borderRadius) => ({
     theme,
 }) => css`
