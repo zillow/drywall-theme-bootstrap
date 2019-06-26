@@ -8,7 +8,7 @@ module.exports = createStyleguideConfig({
         external: true
     }, {
         name: 'Introduction',
-        content: 'docs/introduction.md'
+        content: 'README.md'
     }],
     styleguideComponents: {
         Wrapper: path.join(__dirname, 'src/styleguidist/ThemeWrapper'),
