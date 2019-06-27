@@ -15,10 +15,15 @@ module.exports = createStyleguideConfig({
     },
     getComponentPathLine: componentPath => {
         const name = path.basename(componentPath, '.jsx');
-        return `import { ${name} } from 'drywall';`;
+
+        let module = 'drywall-theme-bootstrap';
+        if (componentPath.indexOf('node_modules/drywall') === 0) {
+            module = 'drywall';
+        }
+
+        return `import { ${name} } from '${module}';`;
     },
 }, {
-    componentsSection: false,
     styleguides: [
         'drywall'
     ],
