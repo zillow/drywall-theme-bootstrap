@@ -56,7 +56,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-test-renderer": "^16.8.6",
-    "standard-version": "^6.0.1"
+    "standard-version": "^8.0.1"
   },
   "author": "brians@zillowgroup.com",
   "homepage": "https://github.com/zillow/drywall-theme-bootstrap",
