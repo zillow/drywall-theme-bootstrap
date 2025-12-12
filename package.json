@@ -37,7 +37,7 @@
   "dependencies": {
     "color": "^3.1.2",
     "prop-types": "^15.7.2",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.4.1"
   },
   "peerDependencies": {
     "drywall": "^0.2.3",
